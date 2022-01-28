@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/lizmat/immutable/workflows/test/badge.svg)](https://github.com/lizmat/immutable/actions)
+
 NAME
 ====
 
