@@ -1,0 +1,38 @@
+use Test;
+use immutable;
+
+plan 10;
+
+my @a = 1,2,3,4;
+my %h = :42a, :666b, c => @a;
+
+my $a-raku = "ValueList.new(1,2,3,4)",
+my $h-raku = "ValueMap.new((:a(42),:b(666),:c($a-raku)))";
+
+is immutable(@a[0]).raku, "1",  'is @a[0] ok';
+is immutable(@a).raku, $a-raku, 'is @a ok';
+is immutable(%h).raku, $h-raku, 'is %h ok';
+is immutable(%h, @a, 42).raku,
+  "ValueList.new($h-raku,$a-raku,42)",
+  'is %h, @a, 42 ok';
+is immutable((%h, @a, 42)).raku,
+  "ValueList.new($h-raku,$a-raku,42)",
+  'is (%h, @a, 42) ok';
+
+is (immutable @a[0]).WHICH,
+  "Int|1",
+  'is @a[0].WHICH ok';
+is (immutable @a).WHICH,
+  "ValueList|E1606893F438C3FE10BEA6C6D1F37F4750741AC8",
+  'is @a.WHICH ok';
+is (immutable %h).WHICH,
+  "ValueMap|622956BB20AC8BDF8D3146715D3B298A1F7191B2",
+  'is %h.WHICH ok';
+is (immutable %h, @a, 42).WHICH,
+  "ValueList|E9983E8AFBAA4BD82AB18985B8A9D6E02FCAE37B",
+  'is %h, @a, 42.WHICH ok';
+is (immutable (%h, @a, 42)).WHICH,
+  "ValueList|E9983E8AFBAA4BD82AB18985B8A9D6E02FCAE37B",
+  'is (%h, @a, 42).WHICH ok';
+
+# vim: expandtab shiftwidth=4

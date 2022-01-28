@@ -1,0 +1,27 @@
+{
+  "auth": "zef:lizmat",
+  "authors": [
+    "Elizabeth Mattijsen"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+    "ValueList:ver<0.0.2>:auth<zef:lizmat>",
+    "ValueMap:ver<0.0.2>:auth<zef:lizmat>"
+  ],
+  "description": "Make data structures immutable",
+  "license": "Artistic-2.0",
+  "name": "immutable",
+  "perl": "6.d",
+  "provides": {
+    "immutable": "lib/immutable.rakumod"
+  },
+  "resources": [
+  ],
+  "source-url": "",
+  "tags": [
+  ],
+  "test-depends": [
+  ],
+  "version": "0.0.1"
+}
