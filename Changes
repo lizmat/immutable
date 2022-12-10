@@ -2,5 +2,9 @@ Revision history for immutable
 
 {{$NEXT}}
 
+0.0.2  2022-12-10T19:39:00+01:00
+    - Add dependency on ValuePair
+    - Add support for making Pairs immutable and valuetype
+
 0.0.1  2022-01-28T11:23:49+01:00
     - Initial version

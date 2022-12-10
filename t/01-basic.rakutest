@@ -1,17 +1,21 @@
 use Test;
 use immutable;
 
-plan 10;
+plan 11;
 
 my @a = 1,2,3,4;
 my %h = :42a, :666b, c => @a;
+my $p = Pair.new: "d", 137;
 
 my $a-raku = "ValueList.new(1,2,3,4)",
 my $h-raku = "ValueMap.new((:a(42),:b(666),:c($a-raku)))";
+my $p-raku = qq/ValuePair.new("d",137)/;
 
 is immutable(@a[0]).raku, "1",  'is @a[0] ok';
 is immutable(@a).raku, $a-raku, 'is @a ok';
 is immutable(%h).raku, $h-raku, 'is %h ok';
+is immutable($p).raku, $p-raku, 'is $p ok';
+
 is immutable(%h, @a, 42).raku,
   "ValueList.new($h-raku,$a-raku,42)",
   'is %h, @a, 42 ok';

@@ -1,14 +1,16 @@
 use ValueList:ver<0.0.2>:auth<zef:lizmat>;
 use ValueMap:ver<0.0.2>:auth<zef:lizmat>;
+use ValuePair:ver<0.0.2>:auth<zef:lizmat>;
 
 my constant L = ValueList;
 my constant M = ValueMap;
 
 my proto sub immutable(|) is export {*}
-my multi sub immutable(@_)   { L.new: @_.map: &immutable }
-my multi sub immutable(%_)   { M.new: %_.map: {.key => immutable .value} }
-my multi sub immutable($_)   { $_ }
-my multi sub immutable(**@_) { L.new: @_.map: &immutable }
+my multi sub immutable(Pair:D $_) { ValuePair.new($_) }
+my multi sub immutable(@_)        { L.new: @_.map: &immutable }
+my multi sub immutable(%_)        { M.new: %_.map: {.key => immutable .value} }
+my multi sub immutable($_)        { $_ }
+my multi sub immutable(**@_)      { L.new: @_.map: &immutable }
 
 =begin pod
 
@@ -25,6 +27,7 @@ use immutable;
 my $ima := immutable @array;
 my $imh := immutable %hash;
 my $ims := immutable @array, %hash;
+my $imp := immutable (a => 42);
 
 =end code
 
@@ -39,8 +42,12 @@ Inspired by a comment by Ralph Mellor on /r/rakulang.
 
 Elizabeth Mattijsen <liz@raku.rocks>
 
-Source can be located at: https://github.com/lizmat/immutable . Comments and
-Pull Requests are welcome.
+Source can be located at: https://github.com/lizmat/immutable .
+Comments and Pull Requests are welcome.
+
+If you like this module, or what I’m doing more generally, committing to a
+L<small sponsorship|https://github.com/sponsors/lizmat/>  would mean a great
+deal to me!
 
 =head1 COPYRIGHT AND LICENSE
 
