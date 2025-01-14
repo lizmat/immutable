@@ -1,7 +1,7 @@
 use Test;
 use immutable;
 
-plan 11;
+plan 14;
 
 my @a = 1,2,3,4;
 my %h = :42a, :666b, c => @a;
@@ -38,5 +38,9 @@ is (immutable %h, @a, 42).WHICH,
 is (immutable (%h, @a, 42)).WHICH,
   "ValueList|E9983E8AFBAA4BD82AB18985B8A9D6E02FCAE37B",
   'is (%h, @a, 42).WHICH ok';
+
+is immutable(immutable @a).raku, $a-raku, 'is immutable @a ok';
+is immutable(immutable %h).raku, $h-raku, 'is immutable %h ok';
+is immutable(immutable $p).raku, $p-raku, 'is immutable $p ok';
 
 # vim: expandtab shiftwidth=4

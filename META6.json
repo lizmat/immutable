@@ -6,9 +6,9 @@
   "build-depends": [
   ],
   "depends": [
-    "ValueList:ver<0.0.2>:auth<zef:lizmat>",
-    "ValueMap:ver<0.0.2>:auth<zef:lizmat>",
-    "ValuePair:ver<0.0.2>:auth<zef:lizmat>"
+    "ValueList:ver<0.0.4+>:auth<zef:lizmat>",
+    "ValueMap:ver<0.0.3+>:auth<zef:lizmat>",
+    "ValuePair:ver<0.0.3+>:auth<zef:lizmat>"
   ],
   "description": "Make data structures immutable",
   "license": "Artistic-2.0",

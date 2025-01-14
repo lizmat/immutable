@@ -1,3 +1,4 @@
 .precomp/
 /immutable-*
 /releases/
+*.rakucov

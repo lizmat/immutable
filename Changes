@@ -1,6 +1,9 @@
 Revision history for immutable
 
 {{$NEXT}}
+    - Update dependencies properly
+    - Add CI badge for each OS
+    - Update copyright year
 
 0.0.2  2022-12-10T19:39:00+01:00
     - Add dependency on ValuePair
