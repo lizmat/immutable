@@ -1,6 +1,8 @@
 Revision history for immutable
 
 {{$NEXT}}
+
+0.0.3  2025-01-14T15:35:06+01:00
     - Update dependencies properly
     - Add CI badge for each OS
     - Update copyright year
